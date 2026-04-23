@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Segurança nas ruas</title>
+
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #fff0f3;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #800020;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .titulo {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .voltar {
+            margin-left: auto;
+            background: white;
+            color: #800020;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* CONTEÚDO */
+        section {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+        }
+
+        h2 {
+            color: #800020;
+        }
+
+        /* CARDS (BOTÕES) */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #eee;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .card:hover {
+            background: #f2dede;
+            transform: scale(1.05);
+        }
+
+        /* RESPOSTA */
+        .resposta {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 5px solid #ffcc00;
+            border-radius: 8px;
+        }
+
+        .alerta {
+            background: #ffe5e5;
+            border-left: 5px solid red;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="titulo">Voz do Silêncio</div>
+    <button class="voltar" onclick="history.back()">← Voltar</button>
+</header>
+
+<section>
+    <h2>⚠️ Situações de risco</h2>
+
+    <div class="cards">
+        <div class="card" onclick="mostrar('sozinho')">Andar sozinha</div>
+        <div class="card" onclick="mostrar('transporte')">Transporte</div>
+        <div class="card" onclick="mostrar('ruas')">Ruas pouco movimentadas</div>
+        <div class="card" onclick="mostrar('celular')">Uso de celular</div>
+    </div>
+
+    <div id="conteudo" class="resposta">
+        Clique em uma situação para ver as recomendações.
+    </div>
+</section>
+
+<section>
+    <h2>🚨 O que fazer em perigo</h2>
+    <div class="alerta">
+        <p>• Procure um local movimentado</p>
+        <p>• Entre em um comércio</p>
+        <p>• Ligue para alguém de confiança</p>
+        <p><strong>• Emergência: 190</strong></p>
+    </div>
+</section>
+
+<footer>
+    <p>📞 190 | 📞 180</p>
+    <p>“Informação também é proteção.”</p>
+</footer>
+
+<script>
+    function mostrar(tipo) {
+        let texto = "";
+
+        if (tipo === "sozinho") {
+            texto = `
+            • Ande com confiança<br>
+            • Observe quem está ao redor<br>
+            • Avise alguém sobre seu trajeto<br>
+            • Evite caminhos desconhecidos<br><br>
+            ⚠️ “Homens só pedem ajuda à outros homens”
+            `;
+        }
+
+        if (tipo === "transporte") {
+            texto = `
+            • Evite usar o celular distraído<br>
+            • Observe quem está ao redor<br>
+            • Confira placa e motorista em apps<br>
+            • Sente-se no banco de trás<br>
+            • Compartilhe a corrida com alguém
+            `;
+        }
+
+        if (tipo === "ruas") {
+            texto = `
+            • Evite usar o celular distraído<br>
+            • Observe quem está ao redor<br>
+            • Prefira locais iluminados<br>
+            • Avise alguém sobre seu trajeto<br>
+            • Evite caminhos desconhecidos
+            `;
+        }
+
+        if (tipo === "celular") {
+            texto = `
+            • Evite usar o celular distraído<br>
+            • Observe quem está ao redor
+            `;
+        }
+
+        document.getElementById("conteudo").innerHTML = texto;
+    }
+</script>
+
+</body>
+</html>

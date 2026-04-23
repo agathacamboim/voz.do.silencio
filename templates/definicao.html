@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Definições</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f3e8ff;
+    }
+
+    /* TOPO */
+    .header {
+        background: #8B1E3F;
+        color: white;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-voltar {
+        background: white;
+        color: black;
+        border-radius: 20px;
+        padding: 10px 20px;
+        margin-right: 15px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .titulo {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .frase {
+        text-align: center;
+        margin: 25px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    /* CONTAINER */
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        padding: 25px;
+        align-items: start;
+    }
+
+    /* CARDS */
+    .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 18px;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .card h3 {
+        margin: 0 0 10px 0;
+        text-align: center !important;
+        width: 100%;
+    }
+
+    .conteudo {
+        display: none;
+        font-size: 17px;
+    }
+
+    .cuidado {
+        grid-column: 1 / -1;
+        width: 480px;
+        margin: 0 auto;
+    }
+
+    .card-verde {
+         background: #e7f8ec;
+        border: 2px solid #2ecc71;
+        width: 380px;
+        margin: 0 auto;
+        cursor: default;
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <a href="{{ url_for('homepage') }}" class="btn-voltar">← Voltar</a>
+    <div class="titulo">Definições</div>
+</div>
+
+<div class="frase">
+    Você merece respeito!
+</div>
+
+<div class="container">
+
+    <!-- CARD 1 -->
+    <div class="card" onclick="toggle(this)">
+        <h3>Você sabe o que é assédio?</h3>
+        <div class="conteudo">
+            Assédio é quando alguém ultrapassa o limite do outro, fazendo algo que causa desconforto, medo ou pressão, mesmo depois da pessoa demonstrar que não quer
+
+            <br><br>
+
+            Pode ser:
+            <ul>
+                <li>Comentários que incomodam</li>
+                <li>Toques sem permissão</li>
+                <li>Pressão</li>
+                <li>Mensagens insistentes</li>
+            </ul>
+
+            Se te fez mal, importa sim.
+        </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card" onclick="toggle(this)">
+        <h3>Tipos de assédio</h3>
+        <div class="conteudo">
+            <ul>
+                <li><b>Verbal:</b> Comentários ofensivos, cantadas insistentes, piadas desconfortáveis</li>
+                <li><b>Físico:</b> Toques sem permissão, puxar, encostar sem consentimento</li>
+                <li><b>Psicológico:</b> Pressão, chantagem, manipulação emocional, fazer você se sentir culpada</li>
+                <li><b>Online:</b> Mensagens insistentes, envio de coisas sem consentimento, exposição na internet</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card cuidado" onclick="toggle(this)">
+        <h3>Cuidado vs Manipulação</h3>
+        <div class="conteudo">
+
+            <b> Cuidado:</b>
+            <ul>
+                <li>Respeita você e seus limites</li>
+                <li>Te escuta</li>
+                <li>Não te pressiona</li>
+            </ul>
+
+            <b> Manipulação:</b>
+            <ul>
+                <li>Faz você se sentir culpado</li>
+                <li>Te pressiona a fazer algo</li>
+                <li>Usa frases como "se você gostasse de mim..."</li>
+                <li>Ignora seus sentimentos</li>
+            </ul>
+
+            Se te faz mal, não é cuidado.
+        </div>
+    </div>
+
+    <!-- CARD VERDE -->
+    <div class="card card-verde">
+        <h3>A culpa nunca é da vítima!</h3>
+        <ul>
+            <li>Você não provocou nada</li>
+            <li>A responsabilidade é de quem fez</li>
+            <li>Você pode dizer NÃO</li>
+            <li>Seus limites importam</li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+function toggle(card) {
+    const content = card.querySelector(".conteudo");
+    content.style.display =
+        content.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+</head>
+
+<style>
+    body {
+        background-color: #8B1E3F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial;
+        margin: 0;
+        height: 100vh;
+    }
+
+    .container {
+        text-align: center;
+        color: #FFE4EC;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .frase {
+        font-size: 30px;
+        margin-bottom: 5px;
+        color: #f8c6d8;
+    }
+
+     input {
+        display: block;
+        width: 250px;
+        padding: 12px;
+        margin: 1px auto;
+        border-radius: 20px;
+        border: none;
+        background-color: #f8c6d8;
+    }
+
+    button {
+        margin-top: 8px;
+        padding: 10px 30px;
+        border-radius: 20px;
+        border: none;
+        background-color: #f8c6d8;
+        color: #8B1E3F;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+
+<div class="container">
+    <p class="frase">Crie sua conta!</p>
+<form method="POST">
+    <input type="text" name="usuario" placeholder="Usuário" required>
+<br><br>
+    <input type="password" name="senha" placeholder="Senha" required>
+<br><br>
+    <button type="submit">Cadastrar</button>
+</form>
+
+</div>
+</body>
+</html>

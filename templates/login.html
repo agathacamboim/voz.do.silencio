@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+<style>
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #8B1E3F;
+      font-family: Arial;
+    }
+
+    .container {
+        text-align: center;
+        color: #FFE4EC;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 10px
+    }
+
+    p {
+        margin-bottom: 30px;
+    }
+
+    input {
+        display: block;
+        width: 250px;
+        padding: 12px;
+        margin: 10px auto;
+        border-radius: 20px;
+        border: none;
+        background-color: #f8c6d8;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px 30px;
+        border-radius: 20px;
+        border: none;
+        background-color: #f8c6d8;
+        color: #8B1E3F;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    a {
+        margin-top: 20px;
+        display: block;
+        color:  #FFE4EC;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Voz do silêncio</h1>
+    <p>Faça seu login ou cadastre-se!</p>
+
+<form method='POST'>
+    <input type="text" name="usuario" placeholder="Usuário" required>
+    <input type="password" name="senha" placeholder="Senha" required>
+    <button type="submit">Entrar</button>
+</form>
+
+<a href="/cadastro">Não tenho cadastro</a>
+</div>
+
+</body>
+</html>

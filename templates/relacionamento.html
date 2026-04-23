@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz- Relacionamentos</title>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff0f5;
+        margin: 0;
+    }
+
+    .header {
+        background-color: #8b1e3f;
+        color: white;
+        padding: 15px 20px;
+        display: flex;;
+        align-items: center;
+        position: relative;
+    }
+
+    .titulo {
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .btn-voltar {
+        background-color: white;
+        color: #8b1e3f;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    /* CONTEÚDO */
+    .container {
+        background: white;
+        max-width: 500px;
+        margin: 40px auto;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    #pergunta {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 12px 25px;
+        margin: 10px;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .sim {
+        background-color: #ff7aa2;
+        color: white;
+    }
+
+    .nao {
+        background-color: #e0e0e0;
+    }
+
+    #resultado {
+        margin-top: 20px;
+        font-weight: bold;
+        white-space: pre-line;
+    }
+
+    #refazer {
+        display: none;
+        background-color: #ff7aa2;
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <button class="btn-voltar" onclick="voltar()">← Voltar</button>
+    <div class="titulo">Quiz sobre seu relacionamento</div>
+    <div></div>
+</div>
+
+<div class="container">
+    <h2>💭 Meu relacionamento é saudável?</h2>
+
+    <p id="pergunta"></p>
+
+    <button class="sim" onclick="responder(true)">Sim</button>
+    <button class="nao" onclick="responder(false)">Não</button>
+
+    <p id="resultado"></p>
+
+    <button id="refazer" onclick="refazerQuiz()">Refazer quiz</button>
+</div>
+
+<script>
+    const perguntas = [
+        "Seu parceiro controla com quem você fala ou sai?",
+        "Ele/ela já te fez sentir culpa por algo que você não fez?",
+        "Já te desrespeitou na frente de outras pessoas?",
+        "Você sente medo de como ele/ela pode reagir?",
+        "Ele/ela invade sua privacidade (celular, redes sociais)?",
+        "Já tentou te afastar de amigos ou família?",
+        "Você sente que precisa mudar quem você é pra agradar?",
+        "Já houve xingamentos, humilhações ou ameaças?",
+        "Ele/ela tenta controlar o que você veste ou faz?",
+        "Você se sente triste ou mal com frequência por causa do relacionamento?"
+    ];
+
+    let indice = 0;
+    let pontos = 0;
+
+    function mostrarPergunta() {
+        document.getElementById("pergunta").innerText = perguntas[indice];
+    }
+
+    function responder(resposta) {
+        if (resposta) pontos++;
+
+        indice++;
+
+        if (indice < perguntas.length) {
+            mostrarPergunta();
+        } else {
+            mostrarResultado();
+        }
+    }
+
+    function mostrarResultado() {
+        let resultado = "";
+
+        if (pontos <= 2) {
+            resultado = "💚 Seu relacionamento parece saudável.";
+        } else if (pontos <= 5) {
+            resultado = "⚠️ Seu relacionamento pode não ser totalmente saudável.";
+        } else if (pontos <= 8) {
+            resultado = "🚨 Seu relacionamento pode ser abusivo.";
+        } else {
+            resultado = "❗ Seu relacionamento apresenta sinais claros de abuso.";
+        }
+
+        document.getElementById("pergunta").innerText = "";
+        document.getElementById("resultado").innerText =
+            resultado + "\n\nEsse quiz não substitui ajuda profissional.\nProcure alguém de confiança.";
+
+        document.getElementById("refazer").style.display = "inline-block";
+    }
+
+    function refazerQuiz() {
+        indice = 0;
+        pontos = 0;
+
+        document.getElementById("resultado").innerText = "";
+        document.getElementById("refazer").style.display = "none";
+
+        mostrarPergunta();
+    }
+
+    function voltar() {
+        window.history.back();
+    }
+
+    mostrarPergunta();
+</script>
+
+</body>
+</html>
